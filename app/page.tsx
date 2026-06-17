@@ -4,9 +4,10 @@ import Reveal from "@/components/Reveal";
 import Faq from "@/components/Faq";
 import Reviews from "@/components/Reviews";
 import CtaBand from "@/components/CtaBand";
+import HeroBackground from "@/components/HeroBackground";
 import JsonLd from "@/components/JsonLd";
 import { faqSchema } from "@/lib/schema";
-import { intro, services, clients, howItWorks, faqs, heroImages, company } from "@/lib/content";
+import { intro, services, clients, howItWorks, faqs, company } from "@/lib/content";
 
 export default function HomePage() {
   return (
@@ -15,10 +16,7 @@ export default function HomePage() {
 
       {/* HERO */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={heroImages[0]} alt="A Better Measure event in production" fill priority className="object-cover" sizes="100vw" />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/90 via-navy-dark/70 to-navy-dark/40" />
-        </div>
+        <HeroBackground />
         <div className="container-bm relative py-28 sm:py-36">
           <div className="max-w-2xl text-white">
             <p className="eyebrow text-coral">{company.legalNote}</p>

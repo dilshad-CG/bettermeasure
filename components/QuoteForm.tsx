@@ -94,7 +94,13 @@ function Field({ label, name, type = "text", required }: { label: string; name: 
       <label htmlFor={name} className="mb-1.5 block text-sm font-medium">
         {label} {required && <span className="text-coral">*</span>}
       </label>
-      <input id={name} name={name} type={type} required={required} className="w-full rounded-xl border border-ink/15 px-4 py-3 text-sm focus:border-blue focus:outline-none" />
+      <input
+        id={name}
+        name={name}
+        type={type}
+        required={required}
+        className="h-12 w-full appearance-none rounded-xl border border-ink/15 bg-white px-4 text-sm text-ink [color-scheme:light] focus:border-blue focus:outline-none"
+      />
     </div>
   );
 }
@@ -103,7 +109,7 @@ function Select({ label, name, options, className = "" }: { label: string; name:
   return (
     <div className={className}>
       <label htmlFor={name} className="mb-1.5 block text-sm font-medium">{label}</label>
-      <select id={name} name={name} className="w-full rounded-xl border border-ink/15 bg-white px-4 py-3 text-sm focus:border-blue focus:outline-none">
+      <select id={name} name={name} className="h-12 w-full rounded-xl border border-ink/15 bg-white px-4 text-sm focus:border-blue focus:outline-none">
         <option value="">Select…</option>
         {options.map((o) => <option key={o} value={o}>{o}</option>)}
       </select>

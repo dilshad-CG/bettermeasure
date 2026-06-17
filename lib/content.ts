@@ -253,8 +253,11 @@ export const clients = [
 // --- HERO + PORTFOLIO images (real event photos from audit) -----------------
 export const heroImages = [
   `${UPLOADS}/2026/01/DSC00049_1920x800.jpg`,
-  `${UPLOADS}/2026/01/DSC00075_1920x800.jpg`,
   `${UPLOADS}/2026/01/1L0A1733_1920x800.jpg`,
+  `${UPLOADS}/2026/01/DSC00075_1920x800.jpg`,
+  `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9045_1920x800.jpg`,
+  `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9612_1920x800.jpg`,
+  `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9166_1920x800.jpg`,
 ];
 
 // A representative selection of the ~120-photo gallery for the portfolio page.

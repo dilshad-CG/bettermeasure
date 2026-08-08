@@ -80,7 +80,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       <section className="section bg-white">
         <div className="container-bm grid items-center gap-12 lg:grid-cols-2">
           <div className="relative order-2 aspect-[4/3] overflow-hidden rounded-3xl bg-navy/5 lg:order-1">
-            <Image src={s.image} alt={s.imageAlt} fill className="object-contain p-8" sizes="(max-width:1024px) 100vw, 50vw" />
+            <Image src={s.image} alt={s.imageAlt} fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw" />
           </div>
           <div className="order-1 lg:order-2">
             <h2 className="text-2xl font-semibold">What&apos;s included</h2>

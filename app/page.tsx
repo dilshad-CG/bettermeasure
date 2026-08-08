@@ -85,7 +85,7 @@ export default function HomePage() {
               <Reveal key={s.slug} delay={(i % 3) * 0.05}>
                 <Link href={`/solutions/${s.slug}`} className="group flex h-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-cream transition-shadow hover:shadow-lg">
                   <div className="relative aspect-[4/3] overflow-hidden bg-navy/5">
-                    <Image src={s.image} alt={s.imageAlt} fill className="object-contain p-6 transition-transform group-hover:scale-105" sizes="(max-width:768px) 100vw, 33vw" />
+                    <Image src={s.image} alt={s.imageAlt} fill className="object-cover transition-transform group-hover:scale-105" sizes="(max-width:768px) 100vw, 33vw" />
                   </div>
                   <div className="flex flex-1 flex-col p-5">
                     <h3 className="text-lg font-semibold text-navy">{s.name}</h3>

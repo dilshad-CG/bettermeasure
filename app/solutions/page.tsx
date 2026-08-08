@@ -33,7 +33,7 @@ export default function SolutionsPage() {
             <Reveal key={s.slug} delay={(i % 2) * 0.05}>
               <Link href={`/solutions/${s.slug}`} className="group flex h-full gap-5 rounded-2xl border border-ink/10 bg-white p-5 transition-shadow hover:shadow-lg">
                 <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-navy/5">
-                  <Image src={s.image} alt={s.imageAlt} fill className="object-contain p-3" sizes="96px" />
+                  <Image src={s.image} alt={s.imageAlt} fill className="object-cover" sizes="96px" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">

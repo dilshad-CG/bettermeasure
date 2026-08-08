@@ -19,13 +19,14 @@ export default function HomePage() {
         <HeroBackground />
         <div className="container-bm relative py-28 sm:py-36">
           <div className="max-w-2xl text-white">
-            <p className="eyebrow text-coral">{company.legalNote}</p>
+            <p className="eyebrow text-blue-light">{company.legalNote}</p>
             <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
               End-to-End Event Solutions That Connect Heart &amp; Purpose
             </h1>
             <p className="mt-5 max-w-xl text-lg text-cream/90">
-              Full-service event production for South African brands — planning, activations, staffing,
-              catering, marquees and creative, handled end to end.
+              Full-service event production for corporates, organisations, institutions, NGOs,
+              governments and international clients, planning, activations, staffing, catering and
+              creative, handled end to end across South Africa and beyond.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/talk-to-us" className="btn-primary">Get a Quote</Link>
@@ -41,7 +42,7 @@ export default function HomePage() {
           {[
             ["20+ years", "Combined experience"],
             ["100%", "Black female-owned"],
-            ["Nationwide", "Across South Africa"],
+            ["Local & global", "South Africa & beyond"],
             ["End to end", "Concept to breakdown"],
           ].map(([big, small]) => (
             <div key={small}>
@@ -60,6 +61,7 @@ export default function HomePage() {
             <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Purpose-led event solutionists</h2>
             <p className="mt-5 leading-relaxed text-ink/80">{intro.lead}</p>
             <p className="mt-4 leading-relaxed text-ink/80">{intro.body}</p>
+            <p className="mt-4 leading-relaxed text-ink/80">{intro.extra}</p>
             <Link href="/heart" className="btn-secondary mt-6">More about our heart</Link>
           </Reveal>
           <Reveal delay={0.1}>
@@ -75,8 +77,8 @@ export default function HomePage() {
         <div className="container-bm">
           <div className="max-w-2xl">
             <p className="eyebrow">Solutions</p>
-            <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Everything your event needs, under one roof</h2>
-            <p className="mt-4 text-ink/70">From full-service production to filling a single gap — here&apos;s how we help.</p>
+            <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Where you relax and we execute</h2>
+            <p className="mt-4 text-ink/70">From full-service production to filling a single gap, here&apos;s how we help.</p>
           </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s, i) => (
@@ -105,11 +107,11 @@ export default function HomePage() {
         <div className="container-bm text-center">
           <p className="eyebrow">Some of our amazing clients</p>
           <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Trusted by brands and institutions</h2>
-          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+          <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
             {clients.map((c) => (
-              <div key={c.name} className="flex h-28 items-center justify-center rounded-2xl border border-ink/10 bg-white p-6 shadow-sm">
+              <div key={c.name} className="flex h-36 items-center justify-center rounded-2xl border border-ink/10 bg-white p-6 shadow-sm sm:h-40">
                 <div className="relative h-full w-full">
-                  <Image src={c.logo} alt={`${c.name} logo`} fill className="object-contain" sizes="200px" />
+                  <Image src={c.logo} alt={`${c.name} logo`} fill className="object-contain" sizes="280px" />
                 </div>
               </div>
             ))}
@@ -123,7 +125,7 @@ export default function HomePage() {
       {/* HOW IT WORKS */}
       <section className="section bg-navy-dark text-cream">
         <div className="container-bm">
-          <p className="eyebrow text-coral">How it works</p>
+          <p className="eyebrow text-blue-light">How it works</p>
           <h2 className="mt-3 text-3xl font-semibold text-white sm:text-4xl">From first message to flawless delivery</h2>
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {howItWorks.map((s) => (

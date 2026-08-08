@@ -9,13 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Better Measure brand palette — taken from the logo (navy + blue),
-        // with a warm coral reserved for conversion CTAs.
+        // Better Measure brand palette — an all-blue corporate system taken from
+        // the logo (navy + blue). The "coral" token name is retained for
+        // backwards-compatible class names but now resolves to a professional
+        // brand blue used for conversion CTAs and accents.
         ink: "#1A1A1A",
-        cream: "#FBF8F3",
+        cream: "#F7F9FC",
         coral: {
-          DEFAULT: "#E2725B", // warm CTA accent
-          dark: "#C65A45",
+          DEFAULT: "#1C6DBB", // primary CTA / accent blue (AA white text)
+          dark: "#145392",
         },
         navy: {
           DEFAULT: "#1E2A5E", // logo navy — primary brand

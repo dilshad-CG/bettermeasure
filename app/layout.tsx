@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Inter, Fraunces } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -10,7 +10,7 @@ import { organizationSchema } from "@/lib/schema";
 import { company } from "@/lib/content";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
-const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-display", display: "swap" });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-display", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(company.url),
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-ZA" className={`${inter.variable} ${fraunces.variable}`}>
+    <html lang="en-ZA" className={`${inter.variable} ${playfair.variable}`}>
       <head>
         {/* Google Tag Manager */}
         <Script id="gtm-base" strategy="afterInteractive">

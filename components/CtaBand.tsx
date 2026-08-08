@@ -3,7 +3,7 @@ import { company } from "@/lib/content";
 
 export default function CtaBand({
   heading = "Ready to plan your event?",
-  sub = "Tell us what you're planning — we'll come back within 24 hours.",
+  sub = "Tell us what you're planning, we'll come back within 24 hours.",
   primaryLabel = "Get a Quote",
 }: {
   heading?: string;

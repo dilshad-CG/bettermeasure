@@ -3,7 +3,7 @@ import Image from "next/image";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Reveal from "@/components/Reveal";
 import CtaBand from "@/components/CtaBand";
-import { about, company } from "@/lib/content";
+import { about, company, coreValues } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Our Heart — Purpose-Led Event Planners in South Africa",
@@ -32,10 +32,16 @@ export default function HeartPage() {
             </blockquote>
           </div>
           <Reveal delay={0.1}>
-            <div className="overflow-hidden rounded-3xl bg-navy/5">
-              <div className="relative aspect-[4/5]">
-                <Image src={about.image} alt="Better Measure values" fill className="object-contain p-8" sizes="(max-width:1024px) 100vw, 33vw" />
-              </div>
+            <div className="rounded-3xl bg-navy p-8 text-white sm:p-10">
+              <p className="eyebrow text-blue-light">Our core values</p>
+              <ul className="mt-6 space-y-6">
+                {coreValues.map((v) => (
+                  <li key={v.name}>
+                    <h3 className="font-display text-xl font-semibold text-white">{v.name}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-cream/80">{v.body}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
           </Reveal>
         </div>
@@ -45,11 +51,11 @@ export default function HeartPage() {
       <section className="section bg-white">
         <div className="container-bm grid gap-6 md:grid-cols-2">
           <div className="rounded-3xl bg-navy p-10 text-white">
-            <p className="eyebrow text-coral">Our Soul — Vision</p>
+            <p className="eyebrow text-blue-light">Our vision</p>
             <p className="mt-4 font-display text-2xl leading-snug">{about.vision}</p>
           </div>
-          <div className="rounded-3xl bg-coral p-10 text-white">
-            <p className="eyebrow text-white/80">Our Soul — Mission</p>
+          <div className="rounded-3xl bg-blue-dark p-10 text-white">
+            <p className="eyebrow text-white/80">Our mission</p>
             <p className="mt-4 font-display text-2xl leading-snug">{about.mission}</p>
           </div>
         </div>

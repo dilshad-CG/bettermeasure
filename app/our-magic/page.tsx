@@ -19,10 +19,10 @@ export default function OurMagicPage() {
 
       <section className="section pt-10">
         <div className="container-bm max-w-3xl">
-          <p className="eyebrow">Our magic — our profile</p>
+          <p className="eyebrow">Our magic, our profile</p>
           <h1 className="mt-3 text-4xl font-semibold sm:text-5xl">Our work, our proof</h1>
           <p className="mt-5 text-lg text-ink/80">
-            From intimate brand launches to large-scale international convenings — a glimpse of the events
+            From intimate brand launches to large-scale international convenings, a glimpse of the events
             we&apos;ve brought to life.
           </p>
         </div>

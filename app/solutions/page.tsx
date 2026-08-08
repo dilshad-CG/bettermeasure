@@ -20,11 +20,11 @@ export default function SolutionsPage() {
 
       <section className="section pt-10">
         <div className="container-bm max-w-3xl">
-          <p className="eyebrow">Solutions — services</p>
+          <p className="eyebrow">Solutions &amp; services</p>
           <h1 className="mt-3 text-4xl font-semibold sm:text-5xl">Tailored event solutions, end to end</h1>
           <p className="mt-5 text-lg text-ink/80">
             Whether you need a full-scale production managed from concept to breakdown, or a single gap
-            filled fast, we step in where you need us most — and make every detail count.
+            filled fast, we step in where you need us most, and make every detail count.
           </p>
         </div>
 
@@ -65,7 +65,7 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      <CtaBand heading="Not sure which solution you need?" sub="Tell us about your event and we’ll recommend the right mix." primaryLabel="Talk to us" />
+      <CtaBand heading="Not sure which solution you need?" sub="Tell us about your event and we'll recommend the right mix." primaryLabel="Talk to us" />
     </>
   );
 }

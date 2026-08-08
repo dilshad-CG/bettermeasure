@@ -6,7 +6,7 @@ import { services } from "@/lib/content";
 const eventTypes = [
   "Corporate event",
   "Product launch",
-  "Brand activation",
+  "Exhibition",
   "Conference / convening",
   "Government / official function",
   "Private / other",
@@ -19,6 +19,7 @@ const budgets = ["Under R50k", "R50k–R150k", "R150k–R500k", "R500k+", "Not s
 // already on that service's page.
 export default function QuoteForm({ service }: { service?: string }) {
   const [sent, setSent] = useState(false);
+  const [otherService, setOtherService] = useState(false);
 
   if (sent) {
     return (
@@ -65,7 +66,32 @@ export default function QuoteForm({ service }: { service?: string }) {
                 {s.name.replace(/ &.*| Management| Solutions| Coordination| Services| Campaigns/g, "")}
               </label>
             ))}
+            <label className="flex cursor-pointer items-center gap-1.5 rounded-full border border-ink/15 px-3 py-1.5 text-xs hover:border-blue">
+              <input
+                type="checkbox"
+                name="services"
+                value="other"
+                className="accent-blue"
+                checked={otherService}
+                onChange={(e) => setOtherService(e.target.checked)}
+              />
+              Other
+            </label>
           </div>
+          {otherService && (
+            <div className="mt-3">
+              <label htmlFor="otherService" className="mb-1.5 block text-sm font-medium">
+                Tell us what you need
+              </label>
+              <input
+                id="otherService"
+                name="otherService"
+                type="text"
+                placeholder="Describe the support you're looking for"
+                className="h-12 w-full rounded-xl border border-ink/15 bg-white px-4 text-sm text-ink focus:border-blue focus:outline-none"
+              />
+            </div>
+          )}
         </div>
       )}
 

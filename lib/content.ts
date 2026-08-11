@@ -334,6 +334,10 @@ export const rating = { value: 5.0, count: 20 };
 
 export const reviews: { name: string; text: string }[] = [
   {
+    name: "Jade Clark",
+    text: "We recently hosted a client networking event to showcase our latest scanner technologies and services to our valued resellers and channel partners. Better Measure was instrumental in making the entire event a huge success.",
+  },
+  {
     name: "Angelique Janse van Rensburg",
     text: "I was absolutely blown away by how professional and supportive everyone was. I got more than what I asked for! I recommend Better Measure for any event. They definitely go over and above for their clients. They have passion and integrity in all that they do. You will not be disappointed, that I can promise!",
   },

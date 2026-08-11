@@ -3,6 +3,14 @@
 import { useState } from "react";
 import { services } from "@/lib/content";
 
+// FormSubmit.co delivers submissions by email — no backend needed for the
+// static export. Primary recipient in the URL, second recipient via `_cc`.
+// NOTE: FormSubmit requires a one-time email activation: the first submission
+// triggers a confirmation link sent to dee@bettermeasure.africa that must be
+// clicked once before submissions start being delivered.
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/dee@bettermeasure.africa";
+const CC_EMAIL = "dilshad@clickgenius.co.za";
+
 const eventTypes = [
   "Corporate event",
   "Product launch",
@@ -14,12 +22,84 @@ const eventTypes = [
 const guestCounts = ["Under 50", "50–150", "150–500", "500+"];
 const budgets = ["Under R50k", "R50k–R150k", "R150k–R500k", "R500k+", "Not sure yet"];
 
+declare global {
+  interface Window {
+    dataLayer: Record<string, unknown>[];
+  }
+}
+
 // When `service` is supplied (service pages), the form is locked to that
 // solution and the "Services needed" picker is omitted — the visitor is
 // already on that service's page.
 export default function QuoteForm({ service }: { service?: string }) {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(false);
   const [otherService, setOtherService] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+
+    const serviceSlugs = fd.getAll("services").map(String);
+    const serviceNames = serviceSlugs
+      .filter((s) => s !== "other")
+      .map((slug) => services.find((x) => x.slug === slug)?.name || slug);
+    if (serviceSlugs.includes("other")) serviceNames.push("Other");
+
+    const data: Record<string, string> = {
+      first_name: String(fd.get("firstName") || ""),
+      last_name: String(fd.get("lastName") || ""),
+      email: String(fd.get("email") || ""),
+      phone: String(fd.get("contact") || ""),
+      event_date: String(fd.get("date") || ""),
+      event_type: String(fd.get("eventType") || ""),
+      guests: String(fd.get("guests") || ""),
+      budget: String(fd.get("budget") || ""),
+      services_needed: serviceNames.join(", "),
+      other_service: String(fd.get("otherService") || ""),
+      message: String(fd.get("message") || ""),
+    };
+    if (service) data.service = service;
+
+    // 1) Fire the dataLayer event on every submit so GTM can capture the lead
+    // with all the fields the user filled in.
+    if (typeof window !== "undefined") {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "form_submitted",
+        form_name: service ? "service_quote" : "quote",
+        form_location: typeof location !== "undefined" ? location.pathname : "",
+        ...data,
+      });
+    }
+
+    // 2) Deliver the submission by email via FormSubmit (to dee + CC dilshad).
+    setSubmitting(true);
+    setError(false);
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          ...data,
+          _subject: service
+            ? `New ${service} enquiry — Better Measure website`
+            : "New event enquiry — Better Measure website",
+          _cc: CC_EMAIL,
+          _template: "table",
+          _captcha: "false",
+        }),
+      });
+      if (!res.ok) throw new Error(`FormSubmit responded ${res.status}`);
+      setSent(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   if (sent) {
     return (
@@ -34,17 +114,11 @@ export default function QuoteForm({ service }: { service?: string }) {
   }
 
   return (
-    <form
-      className="grid gap-4 sm:grid-cols-2"
-      onSubmit={(e) => {
-        e.preventDefault();
-        // Demo prototype: replace with real handler / Formspree / WP REST endpoint.
-        setSent(true);
-      }}
-    >
+    <form className="grid gap-4 sm:grid-cols-2" onSubmit={handleSubmit}>
       {service && <input type="hidden" name="service" value={service} />}
 
-      <Field label="Name" name="name" required />
+      <Field label="First name" name="firstName" required />
+      <Field label="Last name" name="lastName" required />
       <Field label="Contact number" name="contact" type="tel" required />
       <Field label="Email address" name="email" type="email" required />
       <Field label="Date of event" name="date" type="date" />
@@ -104,9 +178,21 @@ export default function QuoteForm({ service }: { service?: string }) {
         <textarea id="message" name="message" rows={4} className="w-full rounded-xl border border-ink/15 px-4 py-3 text-sm focus:border-blue focus:outline-none" />
       </div>
 
+      {error && (
+        <div className="sm:col-span-2 rounded-xl border border-coral/30 bg-coral/5 px-4 py-3 text-sm text-ink/80" role="alert">
+          Something went wrong sending your request. Please email{" "}
+          <a href="mailto:dee@bettermeasure.africa" className="font-semibold text-coral">dee@bettermeasure.africa</a>{" "}
+          or WhatsApp us at +27 79 090 7039 and we&apos;ll pick it up right away.
+        </div>
+      )}
+
       <div className="sm:col-span-2">
-        <button type="submit" className="btn-primary w-full sm:w-auto">
-          {service ? `Request my ${service.split(" ")[0].toLowerCase()} quote` : "Request my quote"}
+        <button type="submit" disabled={submitting} className="btn-primary w-full disabled:opacity-60 sm:w-auto">
+          {submitting
+            ? "Sending…"
+            : service
+            ? `Request my ${service.split(" ")[0].toLowerCase()} quote`
+            : "Request my quote"}
         </button>
         <p className="mt-3 text-xs text-ink/50">No account needed. We typically respond within 24 hours.</p>
       </div>

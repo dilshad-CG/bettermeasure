@@ -16,17 +16,9 @@ const nextConfig = {
   // basePath when images are unoptimized) can be prefixed manually.
   env: { NEXT_PUBLIC_BASE_PATH: basePath },
   images: {
-    // Static export can't use the on-the-fly image optimizer.
+    // Static export can't use the on-the-fly image optimizer. All imagery is
+    // now self-hosted (WebP) under /public, so no remote patterns are needed.
     unoptimized: true,
-    // Reuse the exact event/brand images already hosted on the live WordPress site
-    // (Phase 0 rule: no new/AI-generated imagery — reference originals).
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "bettermeasure.africa",
-        pathname: "/wp-content/uploads/**",
-      },
-    ],
   },
 };
 

@@ -6,7 +6,10 @@
 // reuse originals, no new/AI imagery).
 // =============================================================================
 
-export const UPLOADS = "https://bettermeasure.africa/wp-content/uploads";
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
+// All imagery is self-hosted under /public/assets/uploads (WebP). BASE prefixes
+// the GitHub Pages path; it is empty for a root-domain (cPanel) build.
+export const UPLOADS = `${BASE}/assets/uploads`;
 
 export const company = {
   name: "Better Measure",
@@ -76,11 +79,11 @@ export const about = {
     "Passionate about fusing data with imagination.",
     "Trusted by clients who need things done right, the first time!",
   ],
-  image: `${UPLOADS}/2025/06/Values-01.png`,
+  image: `${UPLOADS}/2025/06/Values-01.webp`,
   people: [
-    { src: `${UPLOADS}/2025/06/People-01.png`, alt: "Better Measure team on site at an event" },
-    { src: `${UPLOADS}/2025/06/People-02.png`, alt: "Safety team at a Better Measure event at Constitution Hill" },
-    { src: `${UPLOADS}/2025/06/People-03.png`, alt: "RSVP staff at an event for the Presidency" },
+    { src: `${UPLOADS}/2025/06/People-01.webp`, alt: "Better Measure team on site at an event" },
+    { src: `${UPLOADS}/2025/06/People-02.webp`, alt: "Safety team at a Better Measure event at Constitution Hill" },
+    { src: `${UPLOADS}/2025/06/People-03.webp`, alt: "RSVP staff at an event for the Presidency" },
   ],
 };
 
@@ -110,7 +113,7 @@ export const services: Service[] = [
       "From small-scale product launches to high-profile international summits, we offer end-to-end event planning that covers concept development, supplier coordination, budgeting, staffing, venue management, and on-site execution.",
     includes: ["Concept development", "Supplier coordination", "Budgeting", "Staffing", "Venue management", "On-site execution"],
     forWho: "Brands and organisations that want a single accountable partner from first brief to final breakdown.",
-    image: `${UPLOADS}/2025/06/Services-01-1.png`,
+    image: `${UPLOADS}/2025/06/Services-01-1.webp`,
     imageAlt: "Better Measure full-service event planning",
     faqs: [
       { q: "How far in advance should I book full event planning?", a: "For large events we recommend 8–12 weeks, but we regularly deliver high-quality events on tighter timelines, talk to us about your date and we'll tell you honestly what's achievable." },
@@ -125,7 +128,7 @@ export const services: Service[] = [
       "We design and deliver creative, interactive brand experiences that resonate with audiences and strengthen customer engagement.",
     includes: ["Experiential concept design", "Interactive installations", "Promotional staffing", "Audience engagement"],
     forWho: "Marketing teams that want their brand felt, not just seen.",
-    image: `${UPLOADS}/2025/06/Services-11.png`,
+    image: `${UPLOADS}/2025/06/Services-11.webp`,
     imageAlt: "Branded Better Measure brand activation stand at a corporate event",
     faqs: [
       { q: "Do you provide promotional staff for activations?", a: "Yes, we supply, brief and manage trained promotional and brand-ambassador staff as part of an activation, including apparel and accreditation." },
@@ -139,7 +142,7 @@ export const services: Service[] = [
       "From behind-the-scenes planning to seamless execution, we manage all moving parts, ensuring timelines, stakeholders, and suppliers work in perfect sync.",
     includes: ["Timeline management", "Stakeholder coordination", "Supplier management", "On-site logistics"],
     forWho: "Organisations with complex, multi-supplier events that need a steady coordinating hand.",
-    image: `${UPLOADS}/2025/06/Services-16.png`,
+    image: `${UPLOADS}/2025/06/Services-16.webp`,
     imageAlt: "Better Measure event set-up and logistics coordination",
     faqs: [
       { q: "Can you coordinate suppliers we've already booked?", a: "Absolutely. We can step in purely as the coordinating layer over your existing suppliers, or source and manage them ourselves." },
@@ -153,7 +156,7 @@ export const services: Service[] = [
       "Our secure systems streamline guest list management, invitation tracking, check-in protocols, and access control for professional and stress-free entry experiences.",
     includes: ["Guest list management", "Invitation tracking", "Check-in protocols", "Access control & accreditation"],
     forWho: "High-profile and high-security events where access control and a smooth arrival matter.",
-    image: `${UPLOADS}/2025/06/Services-02-1.png`,
+    image: `${UPLOADS}/2025/06/Services-02-1.webp`,
     imageAlt: "Better Measure staff at an event RSVP and accreditation check-in table",
     faqs: [
       { q: "Do you provide on-site accreditation staff?", a: "Yes. We have delivered RSVP and accreditation for events including work for the Presidency, with trained staff and secure check-in systems." },
@@ -167,7 +170,7 @@ export const services: Service[] = [
       "We bring vision to life through thoughtful design, creative concepts, and tailored messaging that align with your brand and objectives.",
     includes: ["Creative concept development", "Event design direction", "Tailored messaging", "Content production"],
     forWho: "Brands that need the look, feel and story of an event to ladder up to their objectives.",
-    image: `${UPLOADS}/2025/06/Services-03.png`,
+    image: `${UPLOADS}/2025/06/Services-03.webp`,
     imageAlt: "Custom branded event collateral by Better Measure creative direction",
     faqs: [
       { q: "Can you align the event creative with our existing brand guidelines?", a: "Yes, we work to your brand guidelines and can extend them into a bespoke event identity, signage, and content." },
@@ -182,7 +185,7 @@ export const services: Service[] = [
       "We source and manage catering tailored to your event, from corporate canapés and conference catering to large-scale functions. We match the right caterer to your guest count, budget, and dietary needs, and manage delivery on the day so you don't have to.",
     includes: ["Caterer sourcing & vetting", "Menu & dietary planning", "Beverage and service staff", "On-the-day coordination"],
     forWho: "Events that need reliable, well-matched catering without the supplier headache.",
-    image: `${UPLOADS}/2025/06/Services-07.png`,
+    image: `${UPLOADS}/2025/06/Services-07.webp`,
     imageAlt: "Catering set-up for a Better Measure event",
     isNew: true,
     faqs: [
@@ -198,7 +201,7 @@ export const services: Service[] = [
       "We design and supply branded apparel and event uniforms, from staff and promotional-team kit to corporate gifting wear. Garments are branded to your guidelines so your team looks consistent, professional, and unmistakably on-brand on the day.",
     includes: ["Staff & promo-team uniforms", "Branded corporate apparel", "Embroidery & print branding", "Sizing & on-time delivery"],
     forWho: "Brands and events that want a polished, uniformed team presence.",
-    image: `${UPLOADS}/2025/06/People-03.png`,
+    image: `${UPLOADS}/2025/06/People-03.webp`,
     imageAlt: "Better Measure event team in matching branded staff uniforms",
     isNew: true,
     faqs: [
@@ -213,7 +216,7 @@ export const services: Service[] = [
       "We source and brand promotional items and corporate gifts, giveaways, delegate packs, and branded merchandise that extend your event well beyond the day. With 20+ years in promotional and branding items, we match the right product to your audience and budget.",
     includes: ["Branded giveaways & merch", "Delegate & gift packs", "Corporate gifting", "Sourcing, branding & delivery"],
     forWho: "Campaigns and events that want a lasting, tangible brand touchpoint.",
-    image: `${UPLOADS}/2025/06/Services-13.png`,
+    image: `${UPLOADS}/2025/06/Services-13.webp`,
     imageAlt: "Branded delegate gift bags produced by Better Measure",
     isNew: true,
     faqs: [
@@ -231,11 +234,11 @@ export const adHocCopy =
 
 // --- CLIENTS (logos from audit) --------------------------------------------
 export const clients = [
-  { name: "Ford Foundation", logo: `${UPLOADS}/2026/01/Ford_Foundation_Logo_500x500.png` },
-  { name: "Oriflame", logo: `${UPLOADS}/2026/01/Oriflame-Logo_500x500.png` },
-  { name: "CRTVE", logo: `${UPLOADS}/2026/01/CRTVE_FINAL_BLACK_500x500.png` },
-  { name: "Warbie Couture", logo: `${UPLOADS}/2026/01/Warbie_Warbie-Couture_500x500.png` },
-  { name: "Warbie Rentals", logo: `${UPLOADS}/2026/01/Warbie_Warbie-Rentals_500x500.png` },
+  { name: "Ford Foundation", logo: `${UPLOADS}/2026/01/Ford_Foundation_Logo_500x500.webp` },
+  { name: "Oriflame", logo: `${UPLOADS}/2026/01/Oriflame-Logo_500x500.webp` },
+  { name: "CRTVE", logo: `${UPLOADS}/2026/01/CRTVE_FINAL_BLACK_500x500.webp` },
+  { name: "Warbie Couture", logo: `${UPLOADS}/2026/01/Warbie_Warbie-Couture_500x500.webp` },
+  { name: "Warbie Rentals", logo: `${UPLOADS}/2026/01/Warbie_Warbie-Rentals_500x500.webp` },
 ];
 
 // --- HERO + PORTFOLIO images (real event photos from audit) -----------------
@@ -243,12 +246,12 @@ export const clients = [
 // CDN — replaces the large unoptimised JPGs the WordPress host served slowly,
 // the main Core Web Vitals (LCP) win.
 export const heroImages = [
-  `/hero/hero-1.webp`,
-  `/hero/hero-2.webp`,
-  `/hero/hero-3.webp`,
-  `/hero/hero-4.webp`,
-  `/hero/hero-5.webp`,
-  `/hero/hero-6.webp`,
+  `${BASE}/hero/hero-1.webp`,
+  `${BASE}/hero/hero-2.webp`,
+  `${BASE}/hero/hero-3.webp`,
+  `${BASE}/hero/hero-4.webp`,
+  `${BASE}/hero/hero-5.webp`,
+  `${BASE}/hero/hero-6.webp`,
 ];
 
 // A broad selection of the archive gallery for the portfolio page — real
@@ -256,61 +259,61 @@ export const heroImages = [
 // the rest reference the Better Measure media library. The gallery component
 // prefixes the base path for local (non-http) sources.
 export const portfolio: { src: string; alt: string }[] = [
-  { src: `/portfolio/grantee-reception-01.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
-  { src: `/portfolio/grantee-reception-02.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
-  { src: `/portfolio/grantee-reception-03.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
-  { src: `/portfolio/grantee-reception-04.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
-  { src: `/portfolio/grantee-reception-05.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
-  { src: `/portfolio/grantee-reception-06.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
-  { src: `/portfolio/grantee-reception-07.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
-  { src: `/portfolio/grantee-reception-08.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
-  { src: `/portfolio/grantee-reception-09.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
-  { src: `/portfolio/grantee-reception-10.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
-  { src: `/portfolio/grantee-reception-11.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
-  { src: `/portfolio/grantee-reception-12.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
-  { src: `/portfolio/grantee-reception-13.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
-  { src: `/portfolio/grantee-reception-14.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
-  { src: `/portfolio/grantee-reception-15.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
-  { src: `/portfolio/grantee-reception-16.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
-  { src: `/portfolio/grantee-reception-17.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
-  { src: `${UPLOADS}/2026/01/DSC00321-1-scaled.jpg`, alt: "Better Measure event production" },
-  { src: `${UPLOADS}/2026/01/DSC00486-scaled.jpg`, alt: "Guests at a Better Measure event" },
-  { src: `${UPLOADS}/2026/01/DSC08187-scaled.jpg`, alt: "Better Measure event production" },
-  { src: `${UPLOADS}/2026/01/DSC08204-scaled.jpg`, alt: "Event staging by Better Measure" },
-  { src: `${UPLOADS}/2026/01/DSC08228-scaled.jpg`, alt: "Better Measure event set-up" },
-  { src: `${UPLOADS}/2026/01/DSC08251-scaled.jpg`, alt: "Better Measure event detail" },
-  { src: `${UPLOADS}/2026/01/DSC08271-scaled.jpg`, alt: "Better Measure event production" },
-  { src: `${UPLOADS}/2026/01/DSC08302-scaled.jpg`, alt: "Event staging by Better Measure" },
-  { src: `${UPLOADS}/2026/01/DSC08471-scaled.jpg`, alt: "Better Measure event guests" },
-  { src: `${UPLOADS}/2026/01/DSC08589-scaled.jpg`, alt: "Better Measure event décor" },
-  { src: `${UPLOADS}/2026/01/DSC08659-scaled.jpg`, alt: "Better Measure event production" },
-  { src: `${UPLOADS}/2026/01/DSC08807-scaled.jpg`, alt: "Event set-up by Better Measure" },
-  { src: `${UPLOADS}/2026/01/DSC08886-scaled.jpg`, alt: "Better Measure event detail" },
-  { src: `${UPLOADS}/2026/01/DSC08906-scaled.jpg`, alt: "Better Measure event detail" },
-  { src: `${UPLOADS}/2026/01/DSC08919-scaled.jpg`, alt: "Better Measure event production" },
-  { src: `${UPLOADS}/2026/01/DSC09028-scaled.jpg`, alt: "Better Measure event guests" },
-  { src: `${UPLOADS}/2026/01/DSC09287-scaled.jpg`, alt: "Better Measure event production" },
-  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9030-scaled.jpg`, alt: "Ford Foundation Darren Walker farewell event by Better Measure" },
-  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9045-scaled.jpg`, alt: "Ford Foundation Darren Walker farewell event by Better Measure" },
-  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9072-scaled.jpg`, alt: "Ford Foundation farewell event staging by Better Measure" },
-  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9097-scaled.jpg`, alt: "Ford Foundation Darren Walker farewell event by Better Measure" },
-  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9145-scaled.jpg`, alt: "Ford Foundation Darren Walker farewell event by Better Measure" },
-  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9160-scaled.jpg`, alt: "Ford Foundation Darren Walker farewell event by Better Measure" },
-  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9166-scaled.jpg`, alt: "Ford Foundation farewell event detail" },
-  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9186-scaled.jpg`, alt: "Ford Foundation Darren Walker farewell event by Better Measure" },
-  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9272-scaled.jpg`, alt: "Ford Foundation Darren Walker farewell event by Better Measure" },
-  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9573-scaled.jpg`, alt: "Ford Foundation Darren Walker farewell event by Better Measure" },
-  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9588-scaled.jpg`, alt: "Ford Foundation Darren Walker farewell event by Better Measure" },
-  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9612-scaled.jpg`, alt: "Ford Foundation farewell event by Better Measure" },
-  { src: `${UPLOADS}/2026/01/CF-Fund.jpg`, alt: "Corporate conference and fund event by Better Measure" },
-  { src: `${UPLOADS}/2026/01/CF-Fund-2.jpg`, alt: "Corporate conference and fund event by Better Measure" },
-  { src: `${UPLOADS}/2026/01/CF-Fund-3.jpg`, alt: "Corporate conference and fund event by Better Measure" },
-  { src: `${UPLOADS}/2026/01/CF-Fund-4.jpg`, alt: "Corporate conference and fund event by Better Measure" },
-  { src: `${UPLOADS}/2026/01/CF-Fund-5.jpg`, alt: "Corporate conference and fund event by Better Measure" },
-  { src: `${UPLOADS}/2026/01/CF-Fund-6.jpg`, alt: "Corporate conference and fund event by Better Measure" },
-  { src: `${UPLOADS}/2026/01/CF-Fund-7.jpg`, alt: "Corporate conference and fund event by Better Measure" },
-  { src: `${UPLOADS}/2026/01/CF-Fund-8.jpg`, alt: "Corporate conference and fund event by Better Measure" },
-  { src: `${UPLOADS}/2026/01/CF-Fund-9.jpg`, alt: "Corporate conference and fund event by Better Measure" },
+  { src: `${BASE}/portfolio/grantee-reception-01.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `${BASE}/portfolio/grantee-reception-02.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `${BASE}/portfolio/grantee-reception-03.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `${BASE}/portfolio/grantee-reception-04.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `${BASE}/portfolio/grantee-reception-05.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `${BASE}/portfolio/grantee-reception-06.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `${BASE}/portfolio/grantee-reception-07.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `${BASE}/portfolio/grantee-reception-08.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `${BASE}/portfolio/grantee-reception-09.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `${BASE}/portfolio/grantee-reception-10.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `${BASE}/portfolio/grantee-reception-11.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `${BASE}/portfolio/grantee-reception-12.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `${BASE}/portfolio/grantee-reception-13.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `${BASE}/portfolio/grantee-reception-14.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `${BASE}/portfolio/grantee-reception-15.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `${BASE}/portfolio/grantee-reception-16.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `${BASE}/portfolio/grantee-reception-17.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `${UPLOADS}/2026/01/DSC00321-1-scaled.webp`, alt: "Better Measure event production" },
+  { src: `${UPLOADS}/2026/01/DSC00486-scaled.webp`, alt: "Guests at a Better Measure event" },
+  { src: `${UPLOADS}/2026/01/DSC08187-scaled.webp`, alt: "Better Measure event production" },
+  { src: `${UPLOADS}/2026/01/DSC08204-scaled.webp`, alt: "Event staging by Better Measure" },
+  { src: `${UPLOADS}/2026/01/DSC08228-scaled.webp`, alt: "Better Measure event set-up" },
+  { src: `${UPLOADS}/2026/01/DSC08251-scaled.webp`, alt: "Better Measure event detail" },
+  { src: `${UPLOADS}/2026/01/DSC08271-scaled.webp`, alt: "Better Measure event production" },
+  { src: `${UPLOADS}/2026/01/DSC08302-scaled.webp`, alt: "Event staging by Better Measure" },
+  { src: `${UPLOADS}/2026/01/DSC08471-scaled.webp`, alt: "Better Measure event guests" },
+  { src: `${UPLOADS}/2026/01/DSC08589-scaled.webp`, alt: "Better Measure event décor" },
+  { src: `${UPLOADS}/2026/01/DSC08659-scaled.webp`, alt: "Better Measure event production" },
+  { src: `${UPLOADS}/2026/01/DSC08807-scaled.webp`, alt: "Event set-up by Better Measure" },
+  { src: `${UPLOADS}/2026/01/DSC08886-scaled.webp`, alt: "Better Measure event detail" },
+  { src: `${UPLOADS}/2026/01/DSC08906-scaled.webp`, alt: "Better Measure event detail" },
+  { src: `${UPLOADS}/2026/01/DSC08919-scaled.webp`, alt: "Better Measure event production" },
+  { src: `${UPLOADS}/2026/01/DSC09028-scaled.webp`, alt: "Better Measure event guests" },
+  { src: `${UPLOADS}/2026/01/DSC09287-scaled.webp`, alt: "Better Measure event production" },
+  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9030-scaled.webp`, alt: "Ford Foundation Darren Walker farewell event by Better Measure" },
+  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9045-scaled.webp`, alt: "Ford Foundation Darren Walker farewell event by Better Measure" },
+  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9072-scaled.webp`, alt: "Ford Foundation farewell event staging by Better Measure" },
+  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9097-scaled.webp`, alt: "Ford Foundation Darren Walker farewell event by Better Measure" },
+  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9145-scaled.webp`, alt: "Ford Foundation Darren Walker farewell event by Better Measure" },
+  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9160-scaled.webp`, alt: "Ford Foundation Darren Walker farewell event by Better Measure" },
+  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9166-scaled.webp`, alt: "Ford Foundation farewell event detail" },
+  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9186-scaled.webp`, alt: "Ford Foundation Darren Walker farewell event by Better Measure" },
+  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9272-scaled.webp`, alt: "Ford Foundation Darren Walker farewell event by Better Measure" },
+  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9573-scaled.webp`, alt: "Ford Foundation Darren Walker farewell event by Better Measure" },
+  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9588-scaled.webp`, alt: "Ford Foundation Darren Walker farewell event by Better Measure" },
+  { src: `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9612-scaled.webp`, alt: "Ford Foundation farewell event by Better Measure" },
+  { src: `${UPLOADS}/2026/01/CF-Fund.webp`, alt: "Corporate conference and fund event by Better Measure" },
+  { src: `${UPLOADS}/2026/01/CF-Fund-2.webp`, alt: "Corporate conference and fund event by Better Measure" },
+  { src: `${UPLOADS}/2026/01/CF-Fund-3.webp`, alt: "Corporate conference and fund event by Better Measure" },
+  { src: `${UPLOADS}/2026/01/CF-Fund-4.webp`, alt: "Corporate conference and fund event by Better Measure" },
+  { src: `${UPLOADS}/2026/01/CF-Fund-5.webp`, alt: "Corporate conference and fund event by Better Measure" },
+  { src: `${UPLOADS}/2026/01/CF-Fund-6.webp`, alt: "Corporate conference and fund event by Better Measure" },
+  { src: `${UPLOADS}/2026/01/CF-Fund-7.webp`, alt: "Corporate conference and fund event by Better Measure" },
+  { src: `${UPLOADS}/2026/01/CF-Fund-8.webp`, alt: "Corporate conference and fund event by Better Measure" },
+  { src: `${UPLOADS}/2026/01/CF-Fund-9.webp`, alt: "Corporate conference and fund event by Better Measure" },
 ];
 
 // --- HOW IT WORKS (new, conversion / anxiety-reducer) ----------------------

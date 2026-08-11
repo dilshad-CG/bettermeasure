@@ -1,0 +1,13 @@
+{
+  "name": "Better Measure",
+  "short_name": "Better Measure",
+  "description": "End-to-end event and creative solutions company in Alberton, Gauteng, delivering events across South Africa and internationally.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F9FC",
+  "theme_color": "#1E2A5E",
+  "icons": [
+    { "src": "/apple-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

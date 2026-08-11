@@ -5,15 +5,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = company.url;
   const now = new Date();
 
+  // Trailing slashes match the site's canonical URLs (trailingSlash: true),
+  // so crawlers hit the final URL without a redirect hop.
   const staticPages = ["", "/solutions", "/heart", "/our-magic", "/faq", "/talk-to-us"].map((p) => ({
-    url: `${base}${p}`,
+    url: `${base}${p}/`,
     lastModified: now,
     changeFrequency: "monthly" as const,
     priority: p === "" ? 1 : 0.8,
   }));
 
   const servicePages = services.map((s) => ({
-    url: `${base}/solutions/${s.slug}`,
+    url: `${base}/solutions/${s.slug}/`,
     lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.7,

@@ -4,10 +4,6 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { heroImages } from "@/lib/content";
 
-// Static export with unoptimized images doesn't auto-prefix the GitHub Pages
-// base path for local /public assets.
-const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
 export default function HeroBackground() {
   const [index, setIndex] = useState(0);
   // Only the first hero image loads and paints on arrival (it is the LCP
@@ -41,7 +37,7 @@ export default function HeroBackground() {
       {images.map((src, i) => (
         <Image
           key={src}
-          src={`${base}${src}`}
+          src={src}
           alt=""
           aria-hidden="true"
           fill

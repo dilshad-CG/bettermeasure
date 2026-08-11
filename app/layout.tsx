@@ -12,20 +12,68 @@ import { company } from "@/lib/content";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-display", display: "swap" });
 
+const ogDescription =
+  "Better Measure is a 100% black female-owned, family-run event company in Alberton, Gauteng. End-to-end event planning, activations, staffing, catering & more across South Africa and internationally.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(company.url),
   title: {
     default: "Better Measure | End-to-End Event Solutions in South Africa",
     template: "%s | Better Measure",
   },
-  description:
-    "Better Measure is a 100% black female-owned, family-run event company in Alberton, Gauteng. End-to-end event planning, activations, staffing, catering & more across South Africa.",
+  description: ogDescription,
+  applicationName: "Better Measure",
+  keywords: [
+    "event management South Africa",
+    "event planning Alberton",
+    "corporate events",
+    "brand activations",
+    "exhibitions",
+    "conferences",
+    "RSVP and accreditation",
+    "event production Gauteng",
+    "female-led event company",
+  ],
+  authors: [{ name: "Better Measure" }],
+  creator: "Better Measure",
+  publisher: "Better Measure",
   alternates: { canonical: "/" },
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: "/icon.svg",
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     type: "website",
     siteName: "Better Measure",
     locale: "en_ZA",
+    title: "Better Measure | End-to-End Event Solutions",
+    description: ogDescription,
+    url: "/",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Better Measure — End-to-End Event Solutions That Connect Heart & Purpose",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Better Measure | End-to-End Event Solutions",
+    description: ogDescription,
+    images: ["/og.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
+};
+
+export const viewport = {
+  themeColor: "#1E2A5E",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

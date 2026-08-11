@@ -10,36 +10,31 @@ const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function HeroBackground() {
   const [index, setIndex] = useState(0);
-  // Only the first hero image loads on paint (it's the LCP element). The rest
-  // of the crossfade set is mounted after the browser goes idle so they don't
-  // compete with LCP or inflate the initial payload — a Core Web Vitals win.
-  const [showAll, setShowAll] = useState(false);
+  // Only the first hero image loads and paints on arrival (it is the LCP
+  // element). The rest of the crossfade set is neither loaded nor rotated
+  // until the visitor first interacts — this keeps the auto-advancing slides
+  // from registering as later, slower LCP candidates (a Core Web Vitals win)
+  // while still giving real users the full crossfading hero the moment they
+  // scroll or tap.
+  const [started, setStarted] = useState(false);
 
   useEffect(() => {
-    const start = () => setShowAll(true);
-    const g = globalThis as unknown as {
-      requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number;
-      cancelIdleCallback?: (id: number) => void;
-    };
-    let idleId: number | undefined;
-    let timeoutId: ReturnType<typeof setTimeout> | undefined;
-    if (g.requestIdleCallback) idleId = g.requestIdleCallback(start, { timeout: 2500 });
-    else timeoutId = setTimeout(start, 1500);
-    return () => {
-      if (idleId !== undefined) g.cancelIdleCallback?.(idleId);
-      if (timeoutId !== undefined) clearTimeout(timeoutId);
-    };
+    const start = () => setStarted(true);
+    const opts: AddEventListenerOptions = { once: true, passive: true };
+    const events = ["scroll", "pointerdown", "touchstart", "keydown"] as const;
+    events.forEach((e) => window.addEventListener(e, start, opts));
+    return () => events.forEach((e) => window.removeEventListener(e, start));
   }, []);
 
   useEffect(() => {
-    if (!showAll) return;
+    if (!started) return;
     const t = setInterval(() => {
       setIndex((p) => (p + 1) % heroImages.length);
     }, 5000);
     return () => clearInterval(t);
-  }, [showAll]);
+  }, [started]);
 
-  const images = showAll ? heroImages : heroImages.slice(0, 1);
+  const images = started ? heroImages : heroImages.slice(0, 1);
 
   return (
     <div className="absolute inset-0 overflow-hidden">
@@ -51,7 +46,6 @@ export default function HeroBackground() {
           aria-hidden="true"
           fill
           priority={i === 0}
-          loading={i === 0 ? "eager" : "lazy"}
           sizes="100vw"
           className={`object-cover transition-opacity duration-[1500ms] ease-in-out ${
             i === index ? "opacity-100" : "opacity-0"

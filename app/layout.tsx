@@ -32,6 +32,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-ZA" className={`${inter.variable} ${playfair.variable}`}>
       <head>
+        {/* Speed up the first connections to the image host and GTM */}
+        <link rel="preconnect" href="https://bettermeasure.africa" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
         {/* Google Tag Manager */}
         <Script id="gtm-base" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

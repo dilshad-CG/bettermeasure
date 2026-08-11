@@ -249,8 +249,27 @@ export const heroImages = [
 ];
 
 // A broad selection of the archive gallery for the portfolio page — real
-// event photography pulled from the Better Measure media library.
+// event photography. Local `/portfolio/*` files are self-hosted in /public;
+// the rest reference the Better Measure media library. The gallery component
+// prefixes the base path for local (non-http) sources.
 export const portfolio: { src: string; alt: string }[] = [
+  { src: `/portfolio/grantee-reception-01.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `/portfolio/grantee-reception-02.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `/portfolio/grantee-reception-03.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `/portfolio/grantee-reception-04.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `/portfolio/grantee-reception-05.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `/portfolio/grantee-reception-06.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `/portfolio/grantee-reception-07.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `/portfolio/grantee-reception-08.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `/portfolio/grantee-reception-09.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `/portfolio/grantee-reception-10.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `/portfolio/grantee-reception-11.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `/portfolio/grantee-reception-12.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `/portfolio/grantee-reception-13.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `/portfolio/grantee-reception-14.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `/portfolio/grantee-reception-15.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `/portfolio/grantee-reception-16.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
+  { src: `/portfolio/grantee-reception-17.jpg`, alt: "Ford Foundation grantee reception produced by Better Measure" },
   { src: `${UPLOADS}/2026/01/DSC00321-1-scaled.jpg`, alt: "Better Measure event production" },
   { src: `${UPLOADS}/2026/01/DSC00486-scaled.jpg`, alt: "Guests at a Better Measure event" },
   { src: `${UPLOADS}/2026/01/DSC08187-scaled.jpg`, alt: "Better Measure event production" },

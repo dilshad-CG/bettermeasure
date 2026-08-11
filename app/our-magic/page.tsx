@@ -5,6 +5,11 @@ import Reveal from "@/components/Reveal";
 import CtaBand from "@/components/CtaBand";
 import { portfolio } from "@/lib/content";
 
+// Static export with unoptimized images doesn't auto-prefix the GitHub Pages
+// base path for local /public assets, so add it for non-http sources.
+const withBase = (src: string) =>
+  src.startsWith("http") ? src : `${process.env.NEXT_PUBLIC_BASE_PATH || ""}${src}`;
+
 export const metadata: Metadata = {
   title: "Our Magic — Event Portfolio & Gallery",
   description:
@@ -32,7 +37,7 @@ export default function OurMagicPage() {
             <Reveal key={p.src} delay={(i % 3) * 0.05}>
               <figure className="overflow-hidden rounded-2xl bg-navy/5">
                 <Image
-                  src={p.src}
+                  src={withBase(p.src)}
                   alt={p.alt}
                   width={800}
                   height={600}

@@ -239,13 +239,16 @@ export const clients = [
 ];
 
 // --- HERO + PORTFOLIO images (real event photos from audit) -----------------
+// Self-hosted, optimised WebP (max 1600w) served from the fast GitHub Pages
+// CDN — replaces the large unoptimised JPGs the WordPress host served slowly,
+// the main Core Web Vitals (LCP) win.
 export const heroImages = [
-  `${UPLOADS}/2026/01/DSC00049_1920x800.jpg`,
-  `${UPLOADS}/2026/01/1L0A1733_1920x800.jpg`,
-  `${UPLOADS}/2026/01/DSC00075_1920x800.jpg`,
-  `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9045_1920x800.jpg`,
-  `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9612_1920x800.jpg`,
-  `${UPLOADS}/2026/01/FF-Darren-Walker-Farewell_082A9166_1920x800.jpg`,
+  `/hero/hero-1.webp`,
+  `/hero/hero-2.webp`,
+  `/hero/hero-3.webp`,
+  `/hero/hero-4.webp`,
+  `/hero/hero-5.webp`,
+  `/hero/hero-6.webp`,
 ];
 
 // A broad selection of the archive gallery for the portfolio page — real

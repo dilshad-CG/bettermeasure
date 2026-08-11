@@ -63,15 +63,18 @@ export default function QuoteForm({ service }: { service?: string }) {
     };
     if (service) data.service = service;
 
-    // 1) Fire the dataLayer event on every submit so GTM can capture the lead
-    // with all the fields the user filled in.
+    // 1) Fire the dataLayer event on every submit so GTM can capture the lead.
+    // All fields are grouped as parameters under the form_submitted event
+    // (reference them in GTM as form_data.first_name, form_data.email, etc.).
     if (typeof window !== "undefined") {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: "form_submitted",
-        form_name: service ? "service_quote" : "quote",
-        form_location: typeof location !== "undefined" ? location.pathname : "",
-        ...data,
+        form_data: {
+          form_name: service ? "service_quote" : "quote",
+          form_location: typeof location !== "undefined" ? location.pathname : "",
+          ...data,
+        },
       });
     }
 

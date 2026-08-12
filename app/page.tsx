@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import Faq from "@/components/Faq";
 import Reviews from "@/components/Reviews";
@@ -29,7 +28,7 @@ export default function HomePage() {
               creative, handled end to end across South Africa and beyond.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/talk-to-us" className="btn-primary">Get a Quote</Link>
+              <a href="/talk-to-us" className="btn-primary">Get a Quote</a>
               <a href={company.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-whatsapp">Plan my event on WhatsApp</a>
             </div>
           </div>
@@ -62,7 +61,7 @@ export default function HomePage() {
             <p className="mt-5 leading-relaxed text-ink/80">{intro.lead}</p>
             <p className="mt-4 leading-relaxed text-ink/80">{intro.body}</p>
             <p className="mt-4 leading-relaxed text-ink/80">{intro.extra}</p>
-            <Link href="/heart" className="btn-secondary mt-6">More about our heart</Link>
+            <a href="/heart" className="btn-secondary mt-6">More about our heart</a>
           </Reveal>
           <Reveal delay={0.1}>
             <blockquote className="rounded-3xl bg-navy p-10 text-2xl font-display leading-snug text-white">
@@ -83,7 +82,7 @@ export default function HomePage() {
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s, i) => (
               <Reveal key={s.slug} delay={(i % 3) * 0.05}>
-                <Link href={`/solutions/${s.slug}`} className="group flex h-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-cream transition-shadow hover:shadow-lg">
+                <a href={`/solutions/${s.slug}`} className="group flex h-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-cream transition-shadow hover:shadow-lg">
                   <div className="relative aspect-[4/3] overflow-hidden bg-navy/5">
                     <Image src={s.image} alt={s.imageAlt} fill className="object-cover transition-transform group-hover:scale-105" sizes="(max-width:768px) 100vw, 33vw" />
                   </div>
@@ -92,12 +91,12 @@ export default function HomePage() {
                     <p className="mt-2 flex-1 text-sm text-ink/70">{s.short}</p>
                     <span className="mt-4 text-sm font-semibold text-coral">Learn more →</span>
                   </div>
-                </Link>
+                </a>
               </Reveal>
             ))}
           </div>
           <div className="mt-8">
-            <Link href="/solutions" className="btn-secondary">Find out more about what we offer</Link>
+            <a href="/solutions" className="btn-secondary">Find out more about what we offer</a>
           </div>
         </div>
       </section>
@@ -145,7 +144,7 @@ export default function HomePage() {
           <div>
             <p className="eyebrow">FAQ</p>
             <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Questions, answered</h2>
-            <p className="mt-4 text-ink/70">Can&apos;t find what you&apos;re looking for? <Link href="/talk-to-us" className="font-semibold text-coral">Talk to us</Link>.</p>
+            <p className="mt-4 text-ink/70">Can&apos;t find what you&apos;re looking for? <a href="/talk-to-us" className="font-semibold text-coral">Talk to us</a>.</p>
           </div>
           <Faq items={faqs} />
         </div>

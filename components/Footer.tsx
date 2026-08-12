@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import { company, navLinks } from "@/lib/content";
 
@@ -41,7 +40,7 @@ export default function Footer() {
           <ul className="mt-3 space-y-2 text-sm">
             {navLinks.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="hover:text-white">{l.label}</Link>
+                <a href={l.href} className="hover:text-white">{l.label}</a>
               </li>
             ))}
           </ul>
@@ -56,7 +55,7 @@ export default function Footer() {
             <li className="text-cream/70">{company.address}</li>
             <li className="text-cream/70">{company.hours}</li>
           </ul>
-          <Link href="/talk-to-us" className="btn-primary mt-4 !py-2 !px-5">Get a Quote</Link>
+          <a href="/talk-to-us" className="btn-primary mt-4 !py-2 !px-5">Get a Quote</a>
         </div>
       </div>
       <div className="border-t border-white/10">

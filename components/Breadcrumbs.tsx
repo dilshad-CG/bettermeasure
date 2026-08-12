@@ -1,4 +1,3 @@
-import Link from "next/link";
 import JsonLd from "./JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 
@@ -18,7 +17,7 @@ export default function Breadcrumbs({
         <li key={t.url} className="flex items-center gap-1.5">
           {i > 0 && <span aria-hidden>/</span>}
           {i < trail.length - 1 ? (
-            <Link href={t.url} className={light ? "hover:text-white" : "hover:text-coral"}>{t.name}</Link>
+            <a href={t.url} className={light ? "hover:text-white" : "hover:text-coral"}>{t.name}</a>
           ) : (
             <span className={light ? "text-cream/90" : "text-ink/80"}>{t.name}</span>
           )}

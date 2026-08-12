@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Reveal from "@/components/Reveal";
 import CtaBand from "@/components/CtaBand";
@@ -31,7 +30,7 @@ export default function SolutionsPage() {
         <div className="container-bm mt-12 grid gap-6 md:grid-cols-2">
           {services.map((s, i) => (
             <Reveal key={s.slug} delay={(i % 2) * 0.05}>
-              <Link href={`/solutions/${s.slug}`} className="group flex h-full gap-5 rounded-2xl border border-ink/10 bg-white p-5 transition-shadow hover:shadow-lg">
+              <a href={`/solutions/${s.slug}`} className="group flex h-full gap-5 rounded-2xl border border-ink/10 bg-white p-5 transition-shadow hover:shadow-lg">
                 <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-navy/5">
                   <Image src={s.image} alt={s.imageAlt} fill className="object-cover" sizes="96px" />
                 </div>
@@ -43,7 +42,7 @@ export default function SolutionsPage() {
                   <p className="mt-2 text-sm text-ink/70">{s.description}</p>
                   <span className="mt-3 inline-block text-sm font-semibold text-coral">Learn more →</span>
                 </div>
-              </Link>
+              </a>
             </Reveal>
           ))}
         </div>

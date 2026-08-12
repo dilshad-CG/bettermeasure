@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Faq from "@/components/Faq";
@@ -63,7 +62,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               ))}
             </ul>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Link href="/solutions" className="btn border border-white/40 text-white hover:bg-white/10">All solutions</Link>
+              <a href="/solutions" className="btn border border-white/40 text-white hover:bg-white/10">All solutions</a>
             </div>
           </div>
           <div className="rounded-3xl bg-white p-6 text-ink shadow-xl sm:p-8">
@@ -111,10 +110,10 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           <h2 className="text-2xl font-semibold">Explore more solutions</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-3">
             {others.map((o) => (
-              <Link key={o.slug} href={`/solutions/${o.slug}`} className="rounded-2xl border border-ink/10 p-5 transition-shadow hover:shadow-md">
+              <a key={o.slug} href={`/solutions/${o.slug}`} className="rounded-2xl border border-ink/10 p-5 transition-shadow hover:shadow-md">
                 <h3 className="font-semibold text-navy">{o.name}</h3>
                 <p className="mt-2 text-sm text-ink/70">{o.short}</p>
-              </Link>
+              </a>
             ))}
           </div>
         </div>

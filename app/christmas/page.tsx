@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { company } from "@/lib/content";
 
 // Archived seasonal campaign template (Santa's Garden of Lights, Dec 16–21).
@@ -39,7 +38,7 @@ export default function ChristmasPage() {
           We&apos;d love to bring it to life.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <Link href="/talk-to-us" className="btn-primary">Plan a seasonal event</Link>
+          <a href="/talk-to-us" className="btn-primary">Plan a seasonal event</a>
           <a href={`tel:${company.phone}`} className="btn-secondary">Call {company.phoneDisplay}</a>
         </div>
       </div>

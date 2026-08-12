@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { company } from "@/lib/content";
 
 export default function CtaBand({
@@ -16,7 +15,7 @@ export default function CtaBand({
         <h2 className="max-w-2xl text-3xl font-semibold sm:text-4xl">{heading}</h2>
         <p className="max-w-xl text-white/90">{sub}</p>
         <div className="flex flex-wrap justify-center gap-3">
-          <Link href="/talk-to-us" className="btn bg-white text-coral hover:bg-cream">{primaryLabel}</Link>
+          <a href="/talk-to-us" className="btn bg-white text-coral hover:bg-cream">{primaryLabel}</a>
           <a href={company.whatsapp} target="_blank" rel="noopener noreferrer" className="btn border border-white text-white hover:bg-white/10">Chat on WhatsApp</a>
           <a href={`tel:${company.phone}`} className="btn border border-white text-white hover:bg-white/10">Call {company.phoneDisplay}</a>
         </div>
